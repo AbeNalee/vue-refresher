@@ -12,6 +12,12 @@
   <todo v-for="item in content" :taki="item"></todo>
 
   <div>
+    <ul>
+      <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+    </ul>
+  </div>
+
+  <div>
     <input v-model="plug"></input>
     <button @click="content.push(plug)">Add Item</button>
   </div>
@@ -21,34 +27,6 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-  Vue.component('todo', {
-    props: ['taki'],
-
-    template: `
-      <div>
-      <p v-if="toggle">{{taki}} Shoot</p>
-      <button @click="toggle = !toggle">Pssst...click me</button>
-      </div>
-
-    `,
-
-    data: function () {
-      return{
-        toggle: false
-      }
-    }
-  });
-  new Vue({
-    el: '#app',
-
-    data: {
-      title: 'Vue refresher',
-      content: [],
-      plug: ''
-    }
-  });
-</script>
+<script src="./dist/app.js"></script>
 </body>
 </html>
